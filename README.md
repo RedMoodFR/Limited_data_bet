@@ -4,14 +4,17 @@
  For now my version of the game is in french, but i will implement english.
  
  Rules of the game :
- - Different characters will flip coins;
+ - You will realise a serie of experiments;
+ - In each experiment, a character will flip coins;
  - Half of them are 'cheaters' : they will flip head 75% of the time;
  - Half of them are 'regular' : they will flip head 50% of the time;
  - You can ask them to flip 1 or 5 coins multiple times;
  - Flipping a coin cost you 1 point;
  - You start with 100 points;
  - If you guess right you win 15 points;
- - If you guess wrong you loose 30 points.
+ - If you guess wrong you loose 30 points;
+ - Guessing ends the experiment;
+ - If your score is equal or under zero at the end of an experiment, the game is over.
 
 Commands for the player on my version :
 - Flipping 1 coin : '1'
