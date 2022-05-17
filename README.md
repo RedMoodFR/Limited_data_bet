@@ -1,5 +1,5 @@
 # Limited_data_bet
- A python version of the game proposed by [Primer](https://www.youtube.com/watch?v=QC91Bf8hQVo&t=268s).
+ A python version of the "Catch the cheaters" game proposed by [Primer](https://www.youtube.com/watch?v=QC91Bf8hQVo&t=268s).
  
   For now my version of the game is in french, but i will implement english.
  
