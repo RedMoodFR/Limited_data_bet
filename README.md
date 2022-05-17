@@ -5,6 +5,9 @@
  
  ![image](https://user-images.githubusercontent.com/89022053/168859683-9b494211-f005-40da-8a43-5aa43e4ec399.png)
  
+ Here is a screenshot of my version :
+ 
+ ![image](https://user-images.githubusercontent.com/89022053/168860355-ed8cf092-1a08-4d67-b3b6-39ca292d60e6.png)
  
  For now my version of the game is in french, but i will implement english.
  
