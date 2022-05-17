@@ -25,9 +25,9 @@ Commands for the player on my version :
 The reason I duplicated the game on python is to try different strategies of decision taking using bots :
  - CrazyMonkey1 : will choose 1 of the 4 options randomly (IMPLEMENTED).
  - CrazyMonkey2 : will only bet randomly without flipping coins (IMPLEMENTED).
- - Statistician1 : will bet if his expectation of win/loss based on the probability of the character to be a cheater is positive (NOT IMPLEMENTED).
- - Statistician2 : will bet if his expectation of win/loss based on the probability of the character to be regular is positive (NOT IMPLEMENTED).
- - Statistician3 : will bet if his expectation of win/loss based on the probability of the character to be a cheater AND on the propability of the character to be regular is positive (NOT IMPLEMENTED).
+ - Statistician1 : will bet if his expectation of win/loss based on the poisson probability of the character to be a cheater is positive (NOT IMPLEMENTED).
+ - Statistician2 : will bet if his expectation of win/loss based on the poisson probability of the character to be regular is positive (NOT IMPLEMENTED).
+ - Statistician3 : will bet if his expectation of win/loss based on the poisson probability of the character to be a cheater AND on the propability of the character to be regular is positive (NOT IMPLEMENTED).
  - Bayesians : will take decision in similar conditions than statisticians but based on bayesian's probabilites (NOT IMPLEMENTED).
  - Learner : A machine learning agent which have to choose between the four actions possible. reward based on points and on succes (NOT IMPLEMENTED).
  - Manager : A machine learning agent which have to choose which agent will take the decision between those above. reward based on points and on succes (NOT IMPLEMENTED).
