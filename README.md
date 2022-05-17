@@ -16,6 +16,8 @@
  - Guessing ends the experiment;
  - If your score is equal or under zero at the end of an experiment, the game is over.
 
+The point of the game is to find an equilibrium between using points to collect more data to be able to guess right and win points, and taking the risk to loose points by guessing without enough data to be really confident, to expect to win more points than you've spent in your data collecting.
+
 Commands for the player on my version :
 - Flipping 1 coin : '1'
 - Flipping 5 coins : '2'
