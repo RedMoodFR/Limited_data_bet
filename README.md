@@ -2,6 +2,7 @@
  A python version of the game proposed by [Primer](https://www.youtube.com/watch?v=QC91Bf8hQVo&t=268s).
  
  Here is a screenshot of [the ORIGINAL game by Primer](https://primerlearning.org/) :
+ 
  ![image](https://user-images.githubusercontent.com/89022053/168859683-9b494211-f005-40da-8a43-5aa43e4ec399.png)
  
  
