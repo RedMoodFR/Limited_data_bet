@@ -9,7 +9,7 @@
  - Half of them are 'cheaters' : they will flip head 75% of the time;
  - Half of them are 'regular' : they will flip head 50% of the time;
  - You can ask them to flip 1 or 5 coins multiple times;
- - Flipping a coin cost you 1 point;
+ - Flipping a coin costs you 1 point;
  - You start with 100 points;
  - If you guess right you win 15 points;
  - If you guess wrong you loose 30 points;
