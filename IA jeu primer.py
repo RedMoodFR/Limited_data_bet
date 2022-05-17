@@ -98,6 +98,7 @@ class Partie :
                     self.etat = 'finie'
             self.lancers_moyens = (self.lancers_moyens * (self.n_experiences-1) + self.lancers_partie)/self.n_experiences
             if self.etat != 'finie' :
+                self.etat == 'en cours'
                 self.experience = experience()
                 self.n_experiences += 1
                 self.lancers_partie = 0
