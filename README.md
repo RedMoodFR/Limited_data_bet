@@ -41,6 +41,6 @@ The reason I duplicated the game on python is to try different strategies of dec
  - Bayesians : will take decision in similar conditions than statisticians but based on bayesian's probabilites (NOT IMPLEMENTED).
  - Learner : A machine learning agent which have to choose between the four actions possible. reward based on points and on succes (NOT IMPLEMENTED).
  - Manager : A machine learning agent which have to choose which agent will take the decision between those above. reward based on points and on succes (NOT IMPLEMENTED).
- - DemocraticVote : A group of different agents take their decision. The decision that is the most taken is one the that is chosen (NOT IMPLEMENTED).
+ - DemocraticVote : A group of different agents take their decision. The decision that is the most taken is the one that is chosen (NOT IMPLEMENTED).
 
 Be free to propose other strategies or to help me to implement those above !
