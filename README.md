@@ -1,7 +1,7 @@
 # Limited_data_bet
  A python version of the "Catch the cheaters" game proposed by [Primer](https://www.youtube.com/watch?v=QC91Bf8hQVo&t=268s).
  
-  For now my version of the game is in french, but i will implement english.
+  For now my version of the game is in french, but I will implement english.
  
  Rules of the game :
  - You will realise series of experiments;
