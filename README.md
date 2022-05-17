@@ -1,6 +1,10 @@
 # Limited_data_bet
  A python version of the game proposed by [Primer](https://www.youtube.com/watch?v=QC91Bf8hQVo&t=268s).
  
+ Here is a screenshot of [the ORIGINAL game by Primer](https://primerlearning.org/) :
+ ![image](https://user-images.githubusercontent.com/89022053/168859683-9b494211-f005-40da-8a43-5aa43e4ec399.png)
+ 
+ 
  For now my version of the game is in french, but i will implement english.
  
  Rules of the game :
@@ -17,6 +21,8 @@
  - If your score is equal or under zero at the end of an experiment, the game is over.
 
 The point of the game is to find an equilibrium between using points to collect more data to be able to guess right and win points, and taking the risk to loose points by guessing without enough data to be really confident, to expect to win more points than you've spent in your data collecting.
+
+
 
 Commands for the player on my version :
 - Flipping 1 coin : '1'
