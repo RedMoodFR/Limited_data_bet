@@ -4,7 +4,7 @@
   For now my version of the game is in french, but i will implement english.
  
  Rules of the game :
- - You will realise a serie of experiments;
+ - You will realise series of experiments;
  - In each experiment, a character will flip coins;
  - Half of them are 'cheaters' : they will flip head 75% of the time;
  - Half of them are 'regular' : they will flip head 50% of the time;
