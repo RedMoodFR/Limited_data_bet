@@ -31,11 +31,14 @@ class Partie :
         self.points = 100
         self.resultats = {'tricheurs' : {'justes' : 0, 'faux' : 0}, 'normaux' : {'justes' : 0, 'faux' : 0}}
         self.faux = 0
-        self.juste = 0
+        self.justes = 0
         self.experience = experience()
         self.etat = 'en cours'
-        self.pieces_lancées = 0
+        self.lancers = 0
         self.paris = 0
+        self.lancers_partie = 0
+        self.lancers_moyens = 0
+        self.n_experiences = 1
     
     def feedback_partie(self) :
         print('Tricheurs : Justes :', self.resultats['tricheurs']['justes'], 'Faux :', self.resultats['tricheurs']['faux'])
@@ -47,16 +50,22 @@ class Partie :
     
     def action(self, action) :
         if action == 1 :
+            if self.points < 1 :
+                return False
             self.experience.lancer(1)
             self.points -= 1
-            self.pieces_lancées += 1
+            self.lancers += 1
+            self.lancers_partie += 1
             if self.points <= 0 :
                 self.etat = 'choix forcé'
             return
         elif action == 2 :
+            if self.points < 5 :
+                return False
             self.experience.lancer(5)
             self.points -= 5
-            self.pieces_lancées += 5
+            self.lancers += 5
+            self.lancers_partie += 5
             if self.points <= 0 :
                 self.etat = 'choix forcé'
             return
@@ -66,7 +75,7 @@ class Partie :
                 self.score += 1
                 self.resultats['normaux']['justes'] += 1
                 self.points += 15
-                self.juste += 1
+                self.justes += 1
             else :
                 self.faux += 1
                 self.resultats['normaux']['faux'] += 1
@@ -80,17 +89,24 @@ class Partie :
                 self.score += 1
                 self.resultats['tricheurs']['justes'] += 1
                 self.points += 15
-                self.juste += 1
+                self.justes += 1
             else :
                 self.faux += 1
                 self.resultats['tricheurs']['faux'] += 1
                 self.points -= 30
                 if self.points <= 0 :
                     self.etat = 'finie'
-            self.experience = experience()
+            self.lancers_moyens = (self.lancers_moyens * (self.n_experiences-1) + self.lancers_partie)/self.n_experiences
+            if self.etat != 'finie' :
+                self.experience = experience()
+                self.n_experiences += 1
+                self.lancers_partie = 0
     
     def save_partie(self, joueur = "anonyme") :
-        True
+        with open('scoreboard.csv', 'a') as f :
+            f.write(joueur+';'+str(self.points)+';'+str(self.lancers)+';'+str(self.paris)+';'+str(self.justes)+';'+str(self.faux)+';'+\
+                    str(self.resultats['tricheurs']['justes'])+';'+str(self.resultats['tricheurs']['faux'])+';'+\
+                    str(self.resultats['normaux']['justes'])+';'+str(self.resultats['normaux']['faux'])+'\n')
         
         
 
@@ -115,23 +131,83 @@ def jeu() :
     
 def reset_scoreboard() :
     with open('scoreboard.csv', 'w') as f :
-        f.write("Pseudo;Points;Pièces lancées;Paris;Justes;Faux;Tricheur justes;Tricheurs faux;Normaux justes;Normaux faux\n")    
+        f.write("Pseudo;Points;Lancers;Paris;Justes;Faux;Tricheur justes;Tricheurs faux;Normaux justes;Normaux faux\n")    
     
-def crazy_monkey() :
-    for i in range(10000) :
+def crazy_monkey(n_parties) :
+    best_score = 0
+    for i in range(n_parties) :
         partie = Partie()
         while partie.etat != 'finie':
-            while True :
+            if partie.etat != 'choix forcé' :  
                 action =  randint(1,4)
-                action = int(action)
-                if partie.etat == 'choix forcé' and action in [1,2] :
-                    print('pas assez de points')
-                    continue
-                partie.action(action)
-                break
+            else :
+                action =  randint(3,4)
+            partie.action(action)
+        partie.save_partie("CrazyMonkey1")
+        if partie.justes > best_score :
+            best_score = partie.justes
         print(i+1)
-jeu()
-input()
+    print(best_score)
+    
+def crazy_monkey2(n_parties) :
+    best_score = 0
+    for i in range(n_parties) :
+        partie = Partie()
+        while partie.etat != 'finie':
+            action =  randint(3,4)
+            partie.action(action)
+        partie.save_partie("CrazyMonkey2")
+        if partie.justes > best_score :
+            best_score = partie.justes
+        print(i+1)
+    print(best_score)
+        
+def statistician1(n_parties) :
+    for i in range(n_parties) :
+        partie = Partie()
+        while partie.etat != 'finie':
+            #PRISE DE DECISION
+            action = 0
+            if partie.etat == 'choix forcé' and action in [1,2] :
+                print('pas assez de points')
+                continue
+            partie.action(action)
+            break
+
+def input_n_parties() :
+    while True :
+        a = input("Nombre de parties : ")
+        try :
+            a = int(a)
+        except :
+            print("VOUS DEVEZ ENTRER UN NOMBRE")
+            continue
+        if a < 0 :
+            print("NOMBRE DE PARTIES NEGATIF")
+            continue
+        if a == 0 :
+            print ("NOMBRE DE PARTIES NUL")
+            continue
+        return a
+
+while True :
+    choix = input("""
+        Choisissez une option :
+        1- Jouer soi-même
+        2- CrazyMonkey 1 (full aléatoire)
+        3- CrazyMonkey 2 (paris aléatoire sans lancer)
+        4- Quitter
+        Votre choix : """)
+    if choix == '1' :
+        jeu()
+        continue
+    if choix == '2' :
+        crazy_monkey(input_n_parties())
+    if choix == '3' :
+        crazy_monkey2(input_n_parties())
+        continue
+    if choix == '4' :
+        break
 
             
         
